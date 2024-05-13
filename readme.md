@@ -15,7 +15,7 @@ Here's how the folder you decide to put these in will look. I've expanded out th
 ![Required file structure](/tutorial_images/required_files.png)
 # Environment Variables
 We also need to fill out some environment variables in the Unity Cloud Build advanced configuration.
-* **THIS_PATH**: the folder path of this script, in my project it's at "`Assets/CICD/UnityCloudBuild`".
+* **BUILD_SCRIPT_PATH**: the folder path of this script, in my project it's at "`Assets/CICD/UnityCloudBuild/Steam`".
 * **APP_ID**
 * **DEPOT_ID**
 * **STEAM_USER_NAME**
@@ -49,12 +49,12 @@ export DEPOT_ID=
 export OUTPUT_DIRECTORY=
 export STEAM_USER_NAME=
 export STEAM_SDK_USER_CONFIG=
-export THIS_PATH=
+export BUILD_SCRIPT_PATH=
 
 # this is a variable the UCB fills out for you, but locally we need to set it. It's just the folder path containing your build
 export BUILD_PATH=
 
-bash $THIS_PATH/PCPostBuild.sh
+bash $BUILD_SCRIPT_PATH/PCPostBuild.sh
 ```
 You must call this from the root of the project since that's where it will be called in UCB. So open a terminal at the root and call `$bash path/to/local_upload.sh`
 
